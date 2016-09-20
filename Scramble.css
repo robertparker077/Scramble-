@@ -1,5 +1,9 @@
 body {
-  background-color: grey;
+  background-color: black;
+}
+
+.starwars-text {
+  color: rgba(241, 204, 51, 1.0);
 }
 
 .center {
@@ -10,7 +14,7 @@ body {
   margin-top: 3rem;
 }
 
-#titles {
+/* #titles {
   position: absolute;
   width: 18em;
   height: 50em;
@@ -45,4 +49,4 @@ body {
 @keyframes scroll {
   0% { top: 100%; }
   100% { top: -170%; }
-}
+} */
