@@ -36,21 +36,55 @@ const shuffle = function( randomName ) {
   return result.join('')
 }
 
+//save random actor when choose random actor called
+
+//on submit save answer into local storage?
+//get original word before it was scrambled
+//reverse scramble the array?
+//compare the answer with the descrambled word
+//if the answer matches the descrambled word add one point into the game score
+//display the new score in the DOM
 
 
-function scoreKeeper (answer1, answer2, answer3) {
-  var answerArray = [answer1, answer2, answer3]
-  // for (var i = 0, )
-  //take out spaces in all answers
-  //.tolowercase()
+const scoreKeeper = (function() {
+  let score = 0
 
-  //compare entry to random letters
-}
+  return function( match ) {
+    if( match ) {
+      score++
+    } else {
+      score--
+    }
 
+    return score
+  }
+})()
+
+
+//DOM EVENTS
 $(document).ready( function() {
-  $('#random-word-1').text( shuffle( chooseRandomActor() ) )
+  let lastActor = chooseRandomActor()
+  let lastScore = 0
+
+  $('#random-word-1').text( shuffle( lastActor ) )
 
   $( '#rescramble' ).click( function( event ) {
-    $('#random-word-1').text( shuffle( chooseRandomActor() ) )    
+    $('#random-word-1').text( shuffle( lastActor ) )    
+  })
+
+  $( '#am-i-right' ).click( function( event ) {
+    const guess = $( '#word1' ).val()
+    const correct = guess === lastActor
+    const score = scoreKeeper( correct )
+
+    $('#score').text( score )
+
+    if( correct ) {
+      lastScore = score
+      
+      lastActor = chooseRandomActor()
+      $('#random-word-1').text( shuffle( lastActor ) ) 
+    }
+
   })
 })
