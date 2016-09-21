@@ -42,8 +42,8 @@ function scoreKeeper (answer1, answer2, answer3) {
   //compare entry to random letters
 }
 
-var el = document.getElementById("clickMe");
-if (el.addEventListener)
-    el.addEventListener("click", doFunction, false);
-else if (el.attachEvent)
-    el.attachEvent('onclick', doFunction);
+var scrambleButton = document.getElementById("rescramble");
+if (scrambleButton.addEventListener)
+    scrambleButton.addEventListener("click", shuffle("OhManStuff"), false);
+else if (scrambleButton.attachEvent)
+    scrambleButton.attachEvent('onclick', doFunction);
