@@ -16,6 +16,10 @@ const chooseRandomActor = function (dictionary) {
   return randomName1
 }
 
+const getCharacter = function (actorName) {
+  
+}
+
 
 
 var shuffle = function(randomName) {
@@ -28,7 +32,6 @@ for(var i = randomName.length-1; i >= 0; i--) {
 return randomName;
 }
 
-shuffle();
 
 
 function scoreKeeper (answer1, answer2, answer3) {
