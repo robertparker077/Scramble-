@@ -17,21 +17,20 @@ const chooseRandomActor = function (dictionary) {
 }
 
 const getCharacter = function (actorName) {
-  
+  const character = dictionary[actorName]
+  return document.getElementById('hint').innerHTML = character;
 }
 
 
-
 var shuffle = function(randomName) {
-for(var i = randomName.length-1; i >= 0; i--) {
+  for(var i = randomName.length-1; i >= 0; i--) {
     var randomIndex = Math.floor(Math.random() * (i+1));
     var itematIndex = randomName[randomIndex];
     randomName[randomIndex] = randomName[i];
     randomName[i] = itematIndex
+  }
+return document.getElementById('random-word-1').innerHTML = randomName;
 }
-return randomName;
-}
-
 
 
 function scoreKeeper (answer1, answer2, answer3) {
@@ -42,3 +41,9 @@ function scoreKeeper (answer1, answer2, answer3) {
 
   //compare entry to random letters
 }
+
+var el = document.getElementById("clickMe");
+if (el.addEventListener)
+    el.addEventListener("click", doFunction, false);
+else if (el.attachEvent)
+    el.attachEvent('onclick', doFunction);
