@@ -12,17 +12,23 @@ const dictionary = {
 
 const chooseRandomActor = function (dictionary) {
   const actorNames = Object.keys(dictionary)
-  const randomizedName = actorNames[Math.floor(Math.random() * actorNames.length)]
-  return randomizedName
+  const randomName1 = actorNames[Math.floor(Math.random() * actorNames.length)]
+  return randomName1
 }
 
-// const randomizeLetters = function (letters) {
-//   const lettersArray = letters.replace(/ /g, '').split('')
-//   const randomLetter = lettersArray[Math.floor(Math.random() * lettersArray.length)]
-//   let randomizedWord = []
-//
-//
-// }
+
+
+var shuffle = function(randomName) {
+for(var i = randomName.length-1; i >= 0; i--) {
+    var randomIndex = Math.floor(Math.random() * (i+1));
+    var itematIndex = randomName[randomIndex];
+    randomName[randomIndex] = randomName[i];
+    randomName[i] = itematIndex
+}
+return randomName;
+}
+
+shuffle();
 
 
 function scoreKeeper (answer1, answer2, answer3) {
