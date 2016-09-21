@@ -1,49 +1,56 @@
 const dictionary = {
-  "Mark Hamil":"Luke Skywalker",
-  "Harrison Ford":"Han Solo",
-  "Carrie Fisher":"Princess Leia",
-  "Anthony Daniels":"C-3PO",
-  "Daisy Ridley":"Rey",
-  "Liam Neeson":"Qui-Gon Jinn",
-  "Natalie Portman":"Padme Amidala",
-  "Alec Guinness":"Obi-Wan Kenobi",
-  "Felicity Jones":"Jyn Erso",
+  "Mark Hamil": "Luke Skywalker",
+  "Harrison Ford": "Han Solo",
+  "Carrie Fisher": "Princess Leia",
+  "Anthony Daniels": "C-3PO",
+  "Daisy Ridley": "Rey",
+  "Liam Neeson": "Qui-Gon Jinn",
+  "Natalie Portman": "Padme Amidala",
+  "Alec Guinness": "Obi-Wan Kenobi",
+  "Felicity Jones": "Jyn Erso",
 }
 
-const chooseRandomActor = function (dictionary) {
-  const actorNames = Object.keys(dictionary)
-  const randomName1 = actorNames[Math.floor(Math.random() * actorNames.length)]
-  return randomName1
+const chooseRandomActor = function() {
+  const actorNames = Object.keys( dictionary )
+
+  return actorNames[ Math.floor( Math.random() * actorNames.length ) ]
 }
 
-const getCharacter = function (actorName) {
-  const character = dictionary[actorName]
+const getCharacter = function( actorName ) {
+  const character = dictionary[ actorName ]
+
   return document.getElementById('hint').innerHTML = character;
 }
 
+const shuffle = function( randomName ) {
+  let result = randomName.split('')
 
-var shuffle = function(randomName) {
-  for(var i = randomName.length-1; i >= 0; i--) {
-    var randomIndex = Math.floor(Math.random() * (i+1));
-    var itematIndex = randomName[randomIndex];
-    randomName[randomIndex] = randomName[i];
-    randomName[i] = itematIndex
+  for( let i = 0; i < result.length; i++ ) {
+    const randomIndex = Math.floor( Math.random() * result.length )
+    const item = result[ i ]
+
+    result[ i ] = result[ randomIndex ];
+    result[ randomIndex ] = item
   }
-return document.getElementById('random-word-1').innerHTML = randomName;
+  
+  return result.join('')
 }
+
 
 
 function scoreKeeper (answer1, answer2, answer3) {
   var answerArray = [answer1, answer2, answer3]
-  for (var i = 0, )
+  // for (var i = 0, )
   //take out spaces in all answers
   //.tolowercase()
 
   //compare entry to random letters
 }
 
-var scrambleButton = document.getElementById("rescramble");
-if (scrambleButton.addEventListener)
-    scrambleButton.addEventListener("click", shuffle("OhManStuff"), false);
-else if (scrambleButton.attachEvent)
-    scrambleButton.attachEvent('onclick', doFunction);
+$(document).ready( function() {
+  $('#random-word-1').text( shuffle( chooseRandomActor() ) )
+
+  $( '#rescramble' ).click( function( event ) {
+    $('#random-word-1').text( shuffle( chooseRandomActor() ) )    
+  })
+})
