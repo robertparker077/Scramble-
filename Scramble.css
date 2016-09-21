@@ -27,6 +27,7 @@ body {
   overflow: hidden;
   transform-origin: 50% 100%;
   transform: perspective(300px) rotateX(25deg);
+  z-index: -100;
 }
 
 #titles:after {

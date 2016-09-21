@@ -5,9 +5,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="scramble.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+
   </head>
-  <div class="container">
-    <body>
+  <body>
+    <div class="container">
       <header class="center">
         <h1 class="starwars-text"> Star Wars Scramble Game! </h1>
         <p class="starwars-text">The Sith is Your Lord....Scramble to Understand</p>
@@ -17,7 +20,7 @@
         <div class="row">
           <div class="col-md-6">
             <h1 class="starwars-text"><span id="random-word-1">Holder Text</span></h1>
-            <button id="rescramble" class="btn btn-default input-words" onclick="shuffle();">Rescramble Word</button></span>
+            <button id="rescramble" class="btn btn-default input-words">Rescramble Word</button></span>
           </div>
           <div class="col-md-6">
             <span><input id="word1" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
@@ -25,17 +28,15 @@
 
           </div>
         </div>
-        
       </header>
 
-<div id="titles">
-  <div id="titlecontent">
-   <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy</p>
-  </div>
-</div>
+      <div id="titles">
+        <div id="titlecontent">
+         <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy</p>
+        </div>
+      </div>
+    </div>
 
-    <script type="text/javascript" src=
-    <script type="text/javascript" src="Scramble.js"/>
-    </body>
-  </div>
+    <script type="text/javascript" src="scramble.js"></script>
+  </body>
 </html>
