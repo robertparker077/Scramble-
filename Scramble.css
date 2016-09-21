@@ -14,7 +14,7 @@ body {
   margin-top: 3rem;
 }
 
-/* #titles {
+#titles {
   position: absolute;
   width: 18em;
   height: 50em;
@@ -49,4 +49,4 @@ body {
 @keyframes scroll {
   0% { top: 100%; }
   100% { top: -170%; }
-} */
+}
