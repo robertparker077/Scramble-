@@ -18,17 +18,17 @@ Make sure to look at templates if you need to, but you should create the code fr
 
 ## Specifications
 
-- [ ] Code can be viewed as a web page.
-- [ ] There are three words in the program that randomly scramble on page refresh.
-- [ ] User is prompted for an answer.
+- [X] Code can be viewed as a web page.
+- [X] There are three words in the program that randomly scramble on page refresh.
+- [X] User is able to submit an answer.
 - [ ] User is alerted of game results.
-- [ ] Basic CSS styling is used.
+- [X] Basic CSS styling is used.
 
 ### Required
 
 _Do not remove these specs - they are required for all goals_.
 
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+- [X] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
 ---
 
