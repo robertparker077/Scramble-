@@ -4,10 +4,8 @@
     <title>Scramble</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="scramble.css">
-
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/scramble.css">
     <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
-
   </head>
   <body>
     <div class="container">
@@ -16,64 +14,81 @@
         <h4 id="score">0</h4>
         <p class="starwars-text">The Sith is Your Lord....Scramble to Understand</p>
       </header>
-        <div class="row">
-          <h4 class="starwars-text">This actor played <span id="actor-hint"></span></h4>
+      <div class="row">
+        <h4 class="starwars-text">This actor played <span id="actor-hint"></span></h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="starwars-text">
+          <span id="random-actor">Starwars Actor</span>
+          </h1>
+          <button id="rescramble-actor" class="btn btn-default input-words">Rescramble</button>
+          <button id="new-actor" class="btn btn-default input-words">Get a new actor</button>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h1 class="starwars-text">
-              <span id="random-actor">Starwars Actor</span>
-            </h1>
-            <button id="rescramble-actor" class="btn btn-default input-words">Rescramble</button>
-            <button id="new-actor" class="btn btn-default input-words">Get a new actor</button>
-          </div>
-          <div class="col-md-6">
-            <input id="word1" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
-            <button type="submit" class="btn btn-default input-words pull-right" id="check-actor">Am I right?</button>
-          </div>
+        <div class="col-md-6">
+          <input id="word1" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
+          <button type="submit" class="btn btn-default input-words pull-right" id="check-actor">Am I right?</button>
         </div>
-
-        <div class="row">
-          <h4 class="starwars-text">Guess the character</h4>
+      </div>
+      <div class="row">
+        <h4 class="starwars-text">Guess the character</h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="starwars-text">
+          <span id="random-character">Starwars Character</span>
+          </h1>
+          <button id="rescramble-character" class="btn btn-default input-words">Rescramble</button>
+          <button id="new-character" class="btn btn-default input-words">Get a new character</button>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-
-            <h1 class="starwars-text">
-              <span id="random-character">Starwars Character</span>
-            </h1>
-
-            <button id="rescramble-character" class="btn btn-default input-words">Rescramble</button>
-            <button id="new-character" class="btn btn-default input-words">Get a new character</button>
-          </div>
-          <div class="col-md-6">
-            <input id="word2" type="text" class="form-control input-words" placeholder="Which character is this?">
-            <button type="submit" class="btn btn-default input-words pull-right" id="check-character">Am I right?</button>
-          </div>
+        <div class="col-md-6">
+          <input id="word2" type="text" class="form-control input-words" placeholder="Which character is this?">
+          <button type="submit" class="btn btn-default input-words pull-right" id="check-character">Am I right?</button>
         </div>
-
-        <div class="row">
-          <h4 class="starwars-text">Guess the Starwars ship</h4>
+      </div>
+      <div class="row">
+        <h4 class="starwars-text">Guess the Starwars ship</h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="starwars-text">
+          <span id="random-ship">Starwars Ship</span>
+          </h1>
+          <button id="rescramble-ship" class="btn btn-default input-words">Rescramble</button>
+          <button id="new-ship" class="btn btn-default input-words">Get a new ship</button>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-
-            <h1 class="starwars-text">
-              <span id="random-ship">Starwars Ship</span>
-            </h1>
-
-            <button id="rescramble-ship" class="btn btn-default input-words">Rescramble</button>
-            <button id="new-ship" class="btn btn-default input-words">Get a new ship</button>
-          </div>
-          <div class="col-md-6">
-            <input id="word3" type="text" class="form-control input-words" placeholder="Name that ship!">
-            <button type="submit" class="btn btn-default input-words pull-right" id="check-ship">Am I right?</button>
-          </div>
+        <div class="col-md-6">
+          <input id="word3" type="text" class="form-control input-words" placeholder="Name that ship!">
+          <button type="submit" class="btn btn-default input-words pull-right" id="check-ship">Am I right?</button>
         </div>
-
-
+      </div>
     </div>
 
-    <script type="text/javascript" src="scramble.js"></script>
+<!--Modal-->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    <script type="text/javascript" src="public/javascripts/scramble.js"></script>
   </body>
 </html>
