@@ -16,20 +16,21 @@ const actors = {
   "Felicity Jones": "Jyn Erso",
 }
 
-const characters = [ "4-LOM",
-"Aayla Secura",
+const characters = [ 
+"4-LOM",
+// "Aayla Secura",
 "Admiral Ackbar",
-"Admiral Thrawn",
-"Ahsoka Tano",
-"Anakin Solo",
-"Asajj Ventress",
-"Aurra Sing",
-"Senator Bail Organa",
-"Barriss Offee",
-"Bastila Shan",
+// "Admiral Thrawn",
+// "Ahsoka Tano",
+// "Anakin Solo",
+// "Asajj Ventress",
+// "Aurra Sing",
+// "Senator Bail Organa",
+// "Barriss Offee",
+// "Bastila Shan",
 "Ben Skywalker",
-"Bib Fortuna",
-"Biggs Darklighter",
+// "Bib Fortuna",
+// "Biggs Darklighter",
 "Boba Fett",
 "Bossk"
 ]
@@ -37,37 +38,37 @@ const characters = [ "4-LOM",
 const spacecrafts = [
 "Corellian Corvette",
 "Death Star",
-"Ebon Hawk",
-"Geonosian solar sailer",
-"Imperial Landing Craft",
-"Lambda-class shuttle",
+// "Ebon Hawk",
+// "Geonosian solar sailer",
+// "Imperial Landing Craft",
+// "Lambda-class shuttle",
 "Millennium Falcon",
-"Moldy Crow",
-"Naboo royal cruiser",
-"Naboo royal starship",
-"Naboo star skiff",
-"Nebulon-B frigate",
-"Neimoidian shuttle",
-"Outrider",
-"Radiant VII",
-"Raven's Claw",
-"Rebel blockade runner",
-"Republic assault ship",
-"Republic attack cruiser",
-"Republic cruiser",
-"Rogue Shadow",
-"Sith Infiltrator",
-"Slave I",
-"Star Destroyer",
-"Starfreighter",
-"Tantive IV",
-"Techno Union Starship",
-"Theta-class shuttle",
-"Lucrehulk-class battleship",
-"Trade Federation cruiser",
-"Trade Federation landing ship",
-"Virago",
-" TIE Fighter"
+// "Moldy Crow",
+// "Naboo royal cruiser",
+// "Naboo royal starship",
+// "Naboo star skiff",
+// "Nebulon-B frigate",
+// "Neimoidian shuttle",
+// "Outrider",
+// "Radiant VII",
+// "Raven's Claw",
+// "Rebel blockade runner",
+// "Republic assault ship",
+// "Republic attack cruiser",
+// "Republic cruiser",
+// "Rogue Shadow",
+// "Sith Infiltrator",
+// "Slave I",
+// "Star Destroyer",
+// "Starfreighter",
+// "Tantive IV",
+// "Techno Union Starship",
+// "Theta-class shuttle",
+// "Lucrehulk-class battleship",
+// "Trade Federation cruiser",
+// "Trade Federation landing ship",
+// "Virago",
+"TIE Fighter"
 ]
 
 //////////////////// ACCESSING DATA
@@ -83,13 +84,11 @@ const getCharacterforActorHint = function( actorName ) {
 
 const chooseRandomCharacter = function() {
   const characterNames = characters 
-  console.log(characterNames)
   return characterNames[ Math.floor( Math.random() * characterNames.length )]
 }
 
 const chooseRandomShip = function() {
   const shipNames = spacecrafts 
-  console.log(shipNames)
   return shipNames[ Math.floor( Math.random() * shipNames.length )]
 }
 
@@ -111,14 +110,16 @@ const shuffle = function( randomName ) {
 }
 
 
-//save random actor when choose random actor called
 
+// TO DO ??
 //on submit save answer into local storage?
-//get original word before it was scrambled
-//reverse scramble the array?
-//compare the answer with the descrambled word
-//if the answer matches the descrambled word add one point into the game score
-//display the new score in the DOM
+//on enter submit guess & update score
+//scramble animation on biline
+//get the actor hint working
+//end game conditions and modal with congratulations
+
+
+
 
 
 const scoreKeeper = (function() {
@@ -231,11 +232,10 @@ $(document).ready( function() {
     lastCharacter = chooseRandomCharacter()
     $( '#random-character' ).text( shuffle( lastCharacter ) )
   })
-
-  //WIP new ship not working right
-  $( '#new-Ship' ).click( function( event ) {
+  $( '#new-ship' ).click( function( event ) {
     lastShip = chooseRandomShip()
-    $( '#random-Ship' ).text( shuffle( lastShip ) )
+    console.log(shuffle( lastShip ))
+    $( '#random-ship' ).text( shuffle( lastShip ) )
   })
 
 
@@ -251,6 +251,36 @@ $(document).ready( function() {
       
       lastActor = chooseRandomActor()
       $('#random-actor').text( shuffle( lastActor ) ) 
+    }
+  })
+
+  $( '#check-character' ).click( function( event ) {
+    const guess = $( '#word2' ).val()
+    const correct = guess === lastCharacter
+    const score = scoreKeeper( correct )
+
+    $('#score').text( score )
+
+    if( correct ) {
+      lastScore = score
+      
+      lastCharacter = chooseRandomCharacter()
+      $('#random-character').text( shuffle( lastCharacter ) ) 
+    }
+  })
+
+    $( '#check-ship' ).click( function( event ) {
+    const guess = $( '#word3' ).val()
+    const correct = guess === lastShip
+    const score = scoreKeeper( correct )
+
+    $('#score').text( score )
+
+    if( correct ) {
+      lastScore = score
+      
+      lastShip = chooseRandomShip()
+      $('#random-ship').text( shuffle( lastShip ) ) 
     }
   })
 })
