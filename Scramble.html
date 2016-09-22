@@ -12,55 +12,56 @@
   <body>
     <div class="container">
       <header class="center">
-        <h1 class="starwars-text"> Star Wars Scramble Game! </h1>
+        <h1 class="starwars-text"> Are you the Ultimate Star Wars Fan?! </h1>
         <h4 id="score">0</h4>
         <p class="starwars-text">The Sith is Your Lord....Scramble to Understand</p>
       </header>
         <div class="row">
-          <h4 class="starwars-text">Hint:<span id="hint"></span></h4>
+          <h4 class="starwars-text">This actor played <span id="actor-hint"></span></h4>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <h1 class="starwars-text"><span id="random-actor">Holder Text</span></h1>
-            <button id="rescramble" class="btn btn-default input-words">Rescramble Word</button></span>
+            <h1 class="starwars-text"><span id="random-actor">Starwars Actor</span></h1>
+            <button id="rescramble-actor" class="btn btn-default input-words">Rescramble</button>
+            <button id="new-actor" class="btn btn-default input-words">Get a new actor</button>
           </div>
           <div class="col-md-6">
-            <span><input id="word1" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
-            <button type="submit" class="btn btn-default input-words" id="am-i-right">Am I right?</button></span>
-          </div>
-        </div>
-        <div class="row">
-          <h4 class="starwars-text">Hint:<span id="hint"></span></h4>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h1 class="starwars-text"><span id="random-ship">Holder Text</span></h1>
-            <button id="rescramble" class="btn btn-default input-words">Rescramble Word</button></span>
-          </div>
-          <div class="col-md-6">
-            <span><input id="word2" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
-            <button type="submit" class="btn btn-default input-words" id="am-i-right">Am I right?</button></span>
-          </div>
-        </div>
-         <div class="row">
-          <h4 class="starwars-text">Hint:<span id="hint"></span></h4>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h1 class="starwars-text"><span id="random-word-3">Holder Text</span></h1>
-            <button id="rescramble" class="btn btn-default input-words">Rescramble Word</button></span>
-          </div>
-          <div class="col-md-6">
-            <span><input id="word3" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
-              <button type="submit" class="btn btn-default input-words" id="am-i-right">Am I right?</button></span>
+            <input id="word1" type="text" class="form-control input-words" placeholder="Guess the Actor's Name">
+            <button type="submit" class="btn btn-default input-words pull-right" id="check-actor">Am I right?</button>
           </div>
         </div>
 
-      <div id="titles">
-        <div id="titlecontent">
-         <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy</p>
+        <div class="row">
+          <h4 class="starwars-text">Guess the character</h4>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="starwars-text"><span id="random-character">Starwars Character</span></h1>
+            <button id="rescramble-character" class="btn btn-default input-words">Rescramble</button>
+            <button id="new-character" class="btn btn-default input-words">Get a new character</button>
+          </div>
+          <div class="col-md-6">
+            <input id="word2" type="text" class="form-control input-words" placeholder="Which character is this?">
+            <button type="submit" class="btn btn-default input-words pull-right" id="check-character">Am I right?</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h4 class="starwars-text">Guess the Starwars ship</h4>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="starwars-text"><span id="random-ship">Starwars Ship</span></h1>
+            <button id="rescramble" class="btn btn-default input-words">Rescramble</button>
+            <button id="new-ship" class="btn btn-default input-words">Get a new ship</button>
+          </div>
+          <div class="col-md-6">
+            <input id="word3" type="text" class="form-control input-words" placeholder="Name that ship!">
+            <button type="submit" class="btn btn-default input-words pull-right" id="check-ship">Am I right?</button>
+          </div>
+        </div>
+
+
     </div>
 
     <script type="text/javascript" src="scramble.js"></script>

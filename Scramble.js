@@ -1,93 +1,30 @@
-const actor = {
-  "Mark Hamil": "Luke Skywalker",
-  "Harrison Ford": "Han Solo",
-  "Carrie Fisher": "Princess Leia",
-  "Anthony Daniels": "C-3PO",
-  "Daisy Ridley": "Rey",
-  "Liam Neeson": "Qui-Gon Jinn",
-  "Natalie Portman": "Padme Amidala",
-  "Alec Guinness": "Obi-Wan Kenobi",
-  "Felicity Jones": "Jyn Erso",
-}
+import { spacecrafts, character, actors } from 'libraries'
 
-const character = { "name": "4-LOM",
- "name": "Aayla Secura",
-  "name": "Admiral Ackbar",
-  "name": "Admiral Thrawn",
-  "name": "Ahsoka Tano",
-  "name": "Anakin Solo",
-  "name": "Asajj Ventress",
-  "name": "Aurra Sing",
-  "name": "Senator Bail Organa",
-  "name": "Barriss Offee",
-  "name": "Bastila Shan",
-  "name": "Ben Skywalker",
-  "name": "Bib Fortuna",
-  "name": "Biggs Darklighter",
-  "name": "Boba Fett",
-  "name": "Bossk"
-}
 
-const spacecrafts = {
- "name": "Corellian Corvette",
- "name": "Death Star",
- "name": "Ebon Hawk",
-"name": "Geonosian solar sailer",
-"name": "Imperial Landing Craft",
-"name": "Lambda-class shuttle",
-"name": "Millennium Falcon",
-"name": "Moldy Crow",
-"name": "Naboo royal cruiser",
-"name": "Naboo royal starship",
-"name": "Naboo star skiff",
-"name": "Nebulon-B frigate",
-"name": "Neimoidian shuttle",
-"name": "Outrider",
-"name": "Radiant VII",
-"name": "Raven's Claw",
-"name": "Rebel blockade runner",
-"name": "Republic assault ship",
-"name": "Republic attack cruiser",
-"name": "Republic cruiser",
-"name": "Rogue Shadow",
-"name": "Sith Infiltrator",
-"name": "Slave I",
-"name": "Star Destroyer",
-"name": "Starfreighter",
-"name": "Tantive IV",
-"name": "Techno Union Starship",
-"name": "Theta-class shuttle",
-"name": "Lucrehulk-class battleship",
-"name": "Trade Federation cruiser",
-"name": "Trade Federation landing ship",
-"name": "Virago",
-"name": " TIE Fighter"
-}
 
-const chooseRandomShip = function() {
-  const shipNames = Object.value( spacecrafts )
-
-  return characterNames[ Math.floor( Math.random() * characterNames.length )]
-}
-
-const chooseRandomCharacter = function() {
-  const characterNames = Object.value( character )
-
-  return characterNames[ Math.floor( Math.random() * characterNames.length )]
-}
-
+////////////  ACTOR LOGIC
 const chooseRandomActor = function() {
   const actorNames = Object.keys( actor )
 
   return actorNames[ Math.floor( Math.random() * actorNames.length ) ]
 }
 
-const getCharacter = function( actorName ) {
+const getCharacterforActorHint = function( actorName ) {
   const character = actor[ actorName ]
-
-  return document.getElementById('hint').innerHTML = character;
 }
 
+
+
+//////////////////// CHARACTER LOGIC
+const chooseRandomCharacter = function() {
+  const characterNames = Object.value( character )
+
+  return characterNames[ Math.floor( Math.random() * characterNames.length )]
+}
+
+
+
+//////////////////// GAMEWIDE LOGIC
 const shuffle = function( randomName ) {
   let result = randomName.split('')
 
@@ -101,6 +38,7 @@ const shuffle = function( randomName ) {
   
   return result.join('')
 }
+
 
 //save random actor when choose random actor called
 
@@ -129,19 +67,22 @@ const scoreKeeper = (function() {
 
 //DOM EVENTS
 
-const getActor = (function() {
+const getActor = (function(lastScore) {
   let lastActor = chooseRandomActor()
-  // let lastCharacter = chooseRandomCharacter()
-  // let lastShip = chooseRandomShip()
-  let lastScore = 0
 
-  $('#random-actor').text( shuffle( lastActor ) )
+  $( '#random-actor' ).text( shuffle( lastActor ) )
+  $( '#actor-hint' ).text( getCharacterforActorHint( lastActor ) )  //WIP: this isn't working :<
 
-  $( '#rescramble' ).click( function( event ) {
-    $('#random-actor').text( shuffle( lastActor ) )    
+  $( '#rescramble-actor' ).click( function( event ) {
+    $( '#random-actor' ).text( shuffle( lastActor ) )
   })
 
-  $( '#am-i-right' ).click( function( event ) {
+  $( '#new-actor' ).click( function( event ) {
+    $( '#random-actor' ).text( shuffle( chooseRandomActor() ) )
+  })
+
+
+  $( '#check-actor' ).click( function( event ) {
     const guess = $( '#word1' ).val()
     const correct = guess === lastActor
     const score = scoreKeeper( correct )
@@ -157,10 +98,36 @@ const getActor = (function() {
   })
 })
 
+const getCharacterforActorHint = (function() {
+  let lastCharacter = chooseRandomCharacter()
+
+  $('#random-character').text( shuffle( lastCharacter ) )
+
+  $( '#rescramble' ).click( function( event ) {
+    $('#random-character').text( shuffle( lastCharacter ) )    
+  })
+
+  $( '#am-i-right' ).click( function( event ) {
+    const guess = $( '#word2' ).val()
+    const correct = guess === lastCharacter
+    const score = scoreKeeper( correct )
+
+    $('#score').text( score )
+
+    if( correct ) {
+      lastScore = score
+      
+      lastCharacter = chooseRandomCharacter()
+      $('#random-character').text( shuffle( lastCharacter ) ) 
+    }
+  })
+})
+
 
 
 $(document).ready( function() {
-  getActor()
+  let lastScore = 0
+  getActor(lastScore)
 })
 
 
