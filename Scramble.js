@@ -231,18 +231,12 @@ $(document).ready( function() {
     lastCharacter = chooseRandomCharacter()
     $( '#random-character' ).text( shuffle( lastCharacter ) )
   })
-<<<<<<< HEAD
+
   //WIP new ship not working right
   $( '#new-Ship' ).click( function( event ) {
     lastShip = chooseRandomShip()
     $( '#random-Ship' ).text( shuffle( lastShip ) )
   })
-=======
-  $( '#new-Ship' ).click( function( event ) {
-    lastShip = chooseRandomShip()
-    $( '#random-Ship' ).text( shuffle( lastShip ) )
-  })///GET NEW SHIP NOT WORKING??
->>>>>>> 9d22990c1dea17883f2bdcdd15dab229d59610d0
 
 
   $( '#check-actor' ).click( function( event ) {
