@@ -108,18 +108,43 @@ const shuffle = function( randomName ) {
 
   return result.join('')
 }
-
+//TO DO
+// 2. get the actor hint working
+// 3. on enter submit guess & update score
+// 4. scramble animation on biline
+// 5. on submit save answer into local storage?
 
 
 // TO DO ??
-//on submit save answer into local storage?
-//on enter submit guess & update score
-//scramble animation on biline
-//get the actor hint working
-//end game conditions and modal with congratulations
+// 1. end game conditions and modal with congratulations
 
+// when game reaches 0 points game is lost
+// a. create a counter for the score to count down to 0
 
+const gameLost = (function() {
+  let score = score
 
+  while ( score > 0 ) {
+    //keep playing game
+  } else {
+    //end game
+  }
+  return score
+})
+
+// play the game until it reaches 10 points - to test play until it reaches 3 points
+// a. create a counter for the score to count up to 10
+
+const gameWin = (function() {
+  let score = score
+
+  return function( score ) {
+    if ( score === 10 ) {
+      alert('You have won the game!')
+    } 
+    return score
+  }
+})()
 
 
 const scoreKeeper = (function() {
@@ -135,6 +160,21 @@ const scoreKeeper = (function() {
     return score
   }
 })()
+
+// when game is lost modal drops down to notify user to play again
+// b. make a modal that is hidden on the page
+// c. trigger the modal to show on the page when the user points go down to 0
+
+// DOM EVENTS FOR GAME WIN CONDITIONS
+const gameEnd = (function() {
+ 
+
+})
+
+
+// modal drops down when it reaches 10 points and notifies user they have Won the Game
+// a. make a modal that is hidden on the page
+// b. trigger modal to show on the page when the user reaches score 10
 
 
 //////////////////// DOM EVENTS

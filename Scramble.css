@@ -1,5 +1,18 @@
+/*fonts*/
+@font-face {
+  font-family: 'starjedi';
+  src: url('Starjhol.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: black;
+}
+
+.starwars-font {
+  font-family: 'starjedi';
+  font-size: 5rem;
 }
 
 .starwars-text {
