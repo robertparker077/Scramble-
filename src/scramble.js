@@ -4,72 +4,10 @@
 // var actors = libraries.actors
 // console.log(actors)
 
-const actors = {
-  "Mark Hamil": "Luke Skywalker",
-  "Harrison Ford": "Han Solo",
-  "Carrie Fisher": "Princess Leia",
-  "Anthony Daniels": "C-3PO",
-  "Daisy Ridley": "Rey",
-  "Liam Neeson": "Qui-Gon Jinn",
-  "Natalie Portman": "Padme Amidala",
-  "Alec Guinness": "Obi-Wan Kenobi",
-  "Felicity Jones": "Jyn Erso",
-}
+import actors from './game_data/actors'
+import characters from './game_data/characters'
+import spacecrafts from './game_data/spacecrafts'
 
-const characters = [ 
-"4-LOM",
-// "Aayla Secura",
-"Admiral Ackbar",
-// "Admiral Thrawn",
-// "Ahsoka Tano",
-// "Anakin Solo",
-// "Asajj Ventress",
-// "Aurra Sing",
-// "Senator Bail Organa",
-// "Barriss Offee",
-// "Bastila Shan",
-"Ben Skywalker",
-// "Bib Fortuna",
-// "Biggs Darklighter",
-"Boba Fett",
-"Bossk"
-]
-
-const spacecrafts = [
-"Corellian Corvette",
-"Death Star",
-// "Ebon Hawk",
-// "Geonosian solar sailer",
-// "Imperial Landing Craft",
-// "Lambda-class shuttle",
-"Millennium Falcon",
-// "Moldy Crow",
-// "Naboo royal cruiser",
-// "Naboo royal starship",
-// "Naboo star skiff",
-// "Nebulon-B frigate",
-// "Neimoidian shuttle",
-// "Outrider",
-// "Radiant VII",
-// "Raven's Claw",
-// "Rebel blockade runner",
-// "Republic assault ship",
-// "Republic attack cruiser",
-// "Republic cruiser",
-// "Rogue Shadow",
-// "Sith Infiltrator",
-// "Slave I",
-// "Star Destroyer",
-// "Starfreighter",
-// "Tantive IV",
-// "Techno Union Starship",
-// "Theta-class shuttle",
-// "Lucrehulk-class battleship",
-// "Trade Federation cruiser",
-// "Trade Federation landing ship",
-// "Virago",
-"TIE Fighter"
-]
 
 //////////////////// ACCESSING DATA
 const chooseRandomActor = function() {
@@ -171,73 +109,23 @@ const gameEnd = (function() {
 
 })
 
+const game = {
+  score: 0,
+  won: false,
+  lost: false,
+
+}
+
+// score changes when someone gets a correct answer
+
+// won changes when someone gets above a certain point amount
+
+// loss changes when someone gets below a certain point amount
+
 
 // modal drops down when it reaches 10 points and notifies user they have Won the Game
 // a. make a modal that is hidden on the page
 // b. trigger modal to show on the page when the user reaches score 10
-
-
-//////////////////// DOM EVENTS
-
-// const getActor = (function(lastScore) {
-//   let lastActor = chooseRandomActor()
-
-//   $( '#random-actor' ).text( shuffle( lastActor ) )
-  
-//   $( '#actor-hint' ).text( getCharacterforActorHint( lastActor ) )  //WIP: this isn't working :<
-
-//   $( '#rescramble-actor' ).click( function( event ) {
-
-//     $( '#random-actor' ).text( shuffle( lastActor ) )
-//   })
-
-//   $( '#new-actor' ).click( function( event ) {
-//     lastActor = chooseRandomActor()
-//     $( '#random-actor' ).text( shuffle( lastActor ) )
-//   })
-
-
-//   $( '#check-actor' ).click( function( event ) {
-//     const guess = $( '#word1' ).val()
-//     const correct = guess === lastActor
-//     const score = scoreKeeper( correct )
-
-//     $('#score').text( score )
-
-//     if( correct ) {
-//       lastScore = score
-      
-//       lastActor = chooseRandomActor()
-//       $('#random-actor').text( shuffle( lastActor ) ) 
-//     }
-//   })
-// })
-
-// const getCharacterforActorHint = (function() {
-//   let lastCharacter = chooseRandomCharacter()
-
-//   $('#random-character').text( shuffle( lastCharacter ) )
-
-//   $( '#rescramble' ).click( function( event ) {
-//     $('#random-character').text( shuffle( lastCharacter ) )    
-//   })
-
-//   $( '#am-i-right' ).click( function( event ) {
-//     const guess = $( '#word2' ).val()
-//     const correct = guess === lastCharacter
-//     const score = scoreKeeper( correct )
-
-//     $('#score').text( score )
-
-//     if( correct ) {
-//       lastScore = score
-      
-//       lastCharacter = chooseRandomCharacter()
-//       $('#random-character').text( shuffle( lastCharacter ) ) 
-//     }
-//   })
-// })
-
 
 
 $(document).ready( function() {
