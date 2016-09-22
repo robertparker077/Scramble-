@@ -65,5 +65,8 @@ const spacecrafts = {
   "name": " TIE Fighter"
 }
 
-
-export { spacecrafts, character, actors }
+module.exports = { 
+  spacecrafts: spacecrafts, 
+  character: character, 
+  actor: actor 
+}
