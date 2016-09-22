@@ -16,62 +16,61 @@ const actors = {
   "Felicity Jones": "Jyn Erso",
 }
 
-const characters = { 
-  "name": "4-LOM",
-  "name2": "Aayla Secura",
-  "name3": "Admiral Ackbar",
-  "name4": "Admiral Thrawn",
-  "name5": "Ahsoka Tano",
-  "name6": "Anakin Solo",
-  "name7": "Asajj Ventress",
-  "name8": "Aurra Sing",
-  "name9": "Senator Bail Organa",
-  "name10": "Barriss Offee",
-  "name11": "Bastila Shan",
-  "name12": "Ben Skywalker",
-  "name13": "Bib Fortuna",
-  "name14": "Biggs Darklighter",
-  "name15": "Boba Fett",
-  "name16": "Bossk",
-}
+const characters = [ "4-LOM",
+"Aayla Secura",
+"Admiral Ackbar",
+"Admiral Thrawn",
+"Ahsoka Tano",
+"Anakin Solo",
+"Asajj Ventress",
+"Aurra Sing",
+"Senator Bail Organa",
+"Barriss Offee",
+"Bastila Shan",
+"Ben Skywalker",
+"Bib Fortuna",
+"Biggs Darklighter",
+"Boba Fett",
+"Bossk"
+]
 
-const spacecrafts = {
-  "ship": "Corellian Corvette",
-  "ship": "Death Star",
-  "ship": "Ebon Hawk",
-  "ship": "Geonosian solar sailer",
-  "ship": "Imperial Landing Craft",
-  "ship": "Lambda-class shuttle",
-  "ship": "Millennium Falcon",
-  "ship": "Moldy Crow",
-  "ship": "Naboo royal cruiser",
-  "ship": "Naboo royal starship",
-  "ship": "Naboo star skiff",
-  "ship": "Nebulon-B frigate",
-  "ship": "Neimoidian shuttle",
-  "ship": "Outrider",
-  "ship": "Radiant VII",
-  "ship": "Raven's Claw",
-  "ship": "Rebel blockade runner",
-  "ship": "Republic assault ship",
-  "ship": "Republic attack cruiser",
-  "ship": "Republic cruiser",
-  "ship": "Rogue Shadow",
-  "ship": "Sith Infiltrator",
-  "ship": "Slave I",
-  "ship": "Star Destroyer",
-  "ship": "Starfreighter",
-  "ship": "Tantive IV",
-  "ship": "Techno Union Starship",
-  "ship": "Theta-class shuttle",
-  "ship": "Lucrehulk-class battleship",
-  "ship": "Trade Federation cruiser",
-  "ship": "Trade Federation landing ship",
-  "ship": "Virago",
-  "ship": " TIE Fighter"
-}
+const spacecrafts = [
+"Corellian Corvette",
+"Death Star",
+"Ebon Hawk",
+"Geonosian solar sailer",
+"Imperial Landing Craft",
+"Lambda-class shuttle",
+"Millennium Falcon",
+"Moldy Crow",
+"Naboo royal cruiser",
+"Naboo royal starship",
+"Naboo star skiff",
+"Nebulon-B frigate",
+"Neimoidian shuttle",
+"Outrider",
+"Radiant VII",
+"Raven's Claw",
+"Rebel blockade runner",
+"Republic assault ship",
+"Republic attack cruiser",
+"Republic cruiser",
+"Rogue Shadow",
+"Sith Infiltrator",
+"Slave I",
+"Star Destroyer",
+"Starfreighter",
+"Tantive IV",
+"Techno Union Starship",
+"Theta-class shuttle",
+"Lucrehulk-class battleship",
+"Trade Federation cruiser",
+"Trade Federation landing ship",
+"Virago",
+" TIE Fighter"
+]
 
-//////////////////// ACTOR LOGIC
+//////////////////// ACCESSING DATA
 const chooseRandomActor = function() {
   const actorNames = Object.keys( actors )
 
@@ -82,13 +81,16 @@ const getCharacterforActorHint = function( actorName ) {
   const character = actors[ actorName ]
 }
 
-
-
-//////////////////// CHARACTER LOGIC
 const chooseRandomCharacter = function() {
-  const characterNames = Object.value( characters )
+  const characterNames = characters 
   console.log(characterNames)
   return characterNames[ Math.floor( Math.random() * characterNames.length )]
+}
+
+const chooseRandomShip = function() {
+  const shipNames = spacecrafts 
+  console.log(shipNames)
+  return shipNames[ Math.floor( Math.random() * shipNames.length )]
 }
 
 
@@ -104,7 +106,7 @@ const shuffle = function( randomName ) {
     result[ i ] = result[ randomIndex ];
     result[ randomIndex ] = item
   }
-  
+
   return result.join('')
 }
 
@@ -200,21 +202,41 @@ const scoreKeeper = (function() {
 $(document).ready( function() {
   let lastScore = 0
   let lastActor = chooseRandomActor()
-  // let lastCharacter = chooseRandomCharacter()
-
-  $( '#random-actor' ).text( shuffle( lastActor ) )
-  // $( '#random-character' ).text( shuffle( lastCharacter ) )
+  let lastCharacter = chooseRandomCharacter()
+  let lastShip = chooseRandomShip()
   
   $( '#actor-hint' ).text( getCharacterforActorHint( lastActor ) )  
-  
+
+  $( '#random-actor' ).text( shuffle( lastActor ) )
+  $( '#random-character' ).text( shuffle( lastCharacter ) )
+  $( '#random-ship' ).text( shuffle( lastShip ) )
+   
+
   $( '#rescramble-actor' ).click( function( event ) {
     $( '#random-actor' ).text( shuffle( lastActor ) )
   })
+  $( '#rescramble-character' ).click( function( event ) {
+    $( '#random-character' ).text( shuffle( lastCharacter ) )
+  })
+  $( '#rescramble-ship' ).click( function( event ) {
+    $( '#random-ship' ).text( shuffle( lastShip ) )
+  })
+
 
   $( '#new-actor' ).click( function( event ) {
     lastActor = chooseRandomActor()
     $( '#random-actor' ).text( shuffle( lastActor ) )
   })
+  $( '#new-character' ).click( function( event ) {
+    lastCharacter = chooseRandomCharacter()
+    $( '#random-character' ).text( shuffle( lastCharacter ) )
+  })
+  //WIP new ship not working right
+  $( '#new-Ship' ).click( function( event ) {
+    lastShip = chooseRandomShip()
+    $( '#random-Ship' ).text( shuffle( lastShip ) )
+  })
+
 
   $( '#check-actor' ).click( function( event ) {
     const guess = $( '#word1' ).val()
