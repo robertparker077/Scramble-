@@ -10,9 +10,14 @@
   <body>
     <div class="container">
       <header class="center">
-        <h1 class="starwars-text"> Are you the Ultimate Star Wars Fan?! </h1>
-        <h4 id="score">0</h4>
-        <p class="starwars-text">The Sith is Your Lord....Scramble to Understand</p>
+        <h1 class="starwars-text starwars-font">Are you the Ultimate Star Wars Fan?!</h1>
+        <div id="scoring" class="row">
+          <div class="col-md-2 scoreboard">
+            <h4>Your score is</h4>
+            <h3 id="score">0</h3>
+          </div>
+        </div>
+        <p id="subheading-scramble" class="starwars-text">The Sith is Your Lord....Scramble to Understand</p>
       </header>
       <div class="row">
         <h4 class="starwars-text">This actor played <span id="actor-hint"></span></h4>
@@ -64,13 +69,9 @@
       </div>
     </div>
 
-<!--Modal-->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="game-lost-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -82,7 +83,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Play Again</button>
       </div>
     </div>
   </div>

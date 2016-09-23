@@ -57,6 +57,7 @@ $(document).ready( function() {
     $('#score').text( game.score )
 
     if( game.lost ) {
+      $('.game-lost-modal').addClass('modal-open')
       alert( 'Game Lost' )
     } else if( game.won ) {
       alert( 'Game Won' )
