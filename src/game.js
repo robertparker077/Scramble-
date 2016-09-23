@@ -49,6 +49,7 @@ class Game {
 
   chooseRandomActor() {
     return actors[ this.chooseRandom( Object.keys( actors ) ) ]
+    console.log(Object.keys( actors ))
   }
 
   chooseRandomCharacter() {
@@ -71,7 +72,7 @@ class Game {
     }
 
     this.lost = this.score < 0 
-    this.won = this.score == 10 
+    this.won = this.score == 1
 
     return guess === correctAnswer
   }

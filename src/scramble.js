@@ -52,21 +52,25 @@ $(document).ready( function() {
 
     checkWinConditions( () => $('#random-ship').text( game.shipWord() ))
   })
-
+  
   const checkWinConditions = update => {
     $('#score').text( game.score )
 
     if( game.lost ) {
+<<<<<<< HEAD
       $('.game-lost-modal').addClass('modal-open')
       alert( 'Game Lost' )
+=======
+      alert( 'You LOST, and you are a failure at life' )
+      game = new Game()
+>>>>>>> 4cacbd100c0128fd94643e88332ae80cadb6da85
     } else if( game.won ) {
-      alert( 'Game Won' )
-    } else {
-      update()
-    }
+      alert( 'You WON!')
+      game = new Game()
+    } 
+
+    $('#score').text( game.score )
+    update()
   }
-
-//reset the game 
 })
-
 

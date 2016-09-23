@@ -115,16 +115,16 @@
 	    $('#score').text(game.score);
 
 	    if (game.lost) {
-	      $('.game-lost-modal').addClass('modal-open');
-	      alert('Game Lost');
+	      alert('You LOST, and you are a failure at life');
+	      game = new _game2.default();
 	    } else if (game.won) {
-	      alert('Game Won');
-	    } else {
-	      update();
+	      alert('You WON!');
+	      game = new _game2.default();
 	    }
-	  };
 
-	  //reset the game 
+	    $('#score').text(game.score);
+	    update();
+	  };
 	});
 
 /***/ },
@@ -213,6 +213,7 @@
 	    key: 'chooseRandomActor',
 	    value: function chooseRandomActor() {
 	      return _actors2.default[this.chooseRandom(Object.keys(_actors2.default))];
+	      console.log(Object.keys(_actors2.default));
 	    }
 	  }, {
 	    key: 'chooseRandomCharacter',
@@ -239,7 +240,7 @@
 	      }
 
 	      this.lost = this.score < 0;
-	      this.won = this.score == 10;
+	      this.won = this.score == 1;
 
 	      return guess === correctAnswer;
 	    }
