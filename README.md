@@ -18,10 +18,11 @@ Make sure to look at templates if you need to, but you should create the code fr
 
 ## Specifications
 
+**100% Completion**
 - [X] Code can be viewed as a web page.
 - [X] There are three words in the program that randomly scramble on page refresh.
 - [X] User is able to submit an answer.
-- [ ] User is alerted of game results.
+- [X] User is alerted of game results.
 - [X] Basic CSS styling is used.
 
 ### Required

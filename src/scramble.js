@@ -52,20 +52,20 @@ $(document).ready( function() {
 
     checkWinConditions( () => $('#random-ship').text( game.shipWord() ))
   })
-
+  
   const checkWinConditions = update => {
     $('#score').text( game.score )
 
     if( game.lost ) {
-      alert( 'Game Lost' )
+      alert( 'You LOST, and you are a failure at life' )
+      game = new Game()
     } else if( game.won ) {
-      alert( 'Game Won' )
-    } else {
-      update()
-    }
+      alert( 'You WON!')
+      game = new Game()
+    } 
+
+    $('#score').text( game.score )
+    update()
   }
-
-//reset the game 
 })
-
 

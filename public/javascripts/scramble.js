@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _game = __webpack_require__(4);
+	var _game = __webpack_require__(1);
 
 	var _game2 = _interopRequireDefault(_game);
 
@@ -115,113 +115,20 @@
 	    $('#score').text(game.score);
 
 	    if (game.lost) {
-	      alert('Game Lost');
+	      alert('You LOST, and you are a failure at life');
+	      game = new _game2.default();
 	    } else if (game.won) {
-	      alert('Game Won');
-	    } else {
-	      update();
+	      alert('You WON!');
+	      game = new _game2.default();
 	    }
-	  };
 
-	  //reset the game 
+	    $('#score').text(game.score);
+	    update();
+	  };
 	});
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ACTORS = {
-	  "Mark Hamil": "Luke Skywalker",
-	  "Harrison Ford": "Han Solo",
-	  "Carrie Fisher": "Princess Leia",
-	  "Anthony Daniels": "C-3PO",
-	  "Daisy Ridley": "Rey",
-	  "Liam Neeson": "Qui-Gon Jinn",
-	  "Natalie Portman": "Padme Amidala",
-	  "Alec Guinness": "Obi-Wan Kenobi",
-	  "Felicity Jones": "Jyn Erso"
-	};
-
-	exports.default = ACTORS;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var CHARACTERS = ["4-LOM",
-	// "Aayla Secura",
-	"Admiral Ackbar",
-	// "Admiral Thrawn",
-	// "Ahsoka Tano",
-	// "Anakin Solo",
-	// "Asajj Ventress",
-	// "Aurra Sing",
-	// "Senator Bail Organa",
-	// "Barriss Offee",
-	// "Bastila Shan",
-	"Ben Skywalker",
-	// "Bib Fortuna",
-	// "Biggs Darklighter",
-	"Boba Fett", "Bossk"];
-
-	exports.default = CHARACTERS;
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var SPACECRAFTS = ["Corellian Corvette", "Death Star",
-	// "Ebon Hawk",
-	// "Geonosian solar sailer",
-	// "Imperial Landing Craft",
-	// "Lambda-class shuttle",
-	"Millennium Falcon",
-	// "Moldy Crow",
-	// "Naboo royal cruiser",
-	// "Naboo royal starship",
-	// "Naboo star skiff",
-	// "Nebulon-B frigate",
-	// "Neimoidian shuttle",
-	// "Outrider",
-	// "Radiant VII",
-	// "Raven's Claw",
-	// "Rebel blockade runner",
-	// "Republic assault ship",
-	// "Republic attack cruiser",
-	// "Republic cruiser",
-	// "Rogue Shadow",
-	// "Sith Infiltrator",
-	// "Slave I",
-	// "Star Destroyer",
-	// "Starfreighter",
-	// "Tantive IV",
-	// "Techno Union Starship",
-	// "Theta-class shuttle",
-	// "Lucrehulk-class battleship",
-	// "Trade Federation cruiser",
-	// "Trade Federation landing ship",
-	// "Virago",
-	"TIE Fighter"];
-
-	exports.default = SPACECRAFTS;
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -232,15 +139,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _actors = __webpack_require__(1);
+	var _actors = __webpack_require__(2);
 
 	var _actors2 = _interopRequireDefault(_actors);
 
-	var _characters = __webpack_require__(2);
+	var _characters = __webpack_require__(3);
 
 	var _characters2 = _interopRequireDefault(_characters);
 
-	var _spacecrafts = __webpack_require__(3);
+	var _spacecrafts = __webpack_require__(4);
 
 	var _spacecrafts2 = _interopRequireDefault(_spacecrafts);
 
@@ -306,6 +213,7 @@
 	    key: 'chooseRandomActor',
 	    value: function chooseRandomActor() {
 	      return _actors2.default[this.chooseRandom(Object.keys(_actors2.default))];
+	      console.log(Object.keys(_actors2.default));
 	    }
 	  }, {
 	    key: 'chooseRandomCharacter',
@@ -332,7 +240,7 @@
 	      }
 
 	      this.lost = this.score < 0;
-	      this.won = this.score == 10;
+	      this.won = this.score == 1;
 
 	      return guess === correctAnswer;
 	    }
@@ -390,6 +298,100 @@
 	}();
 
 	exports.default = Game;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ACTORS = {
+	  "Mark Hamil": "Luke Skywalker",
+	  "Harrison Ford": "Han Solo",
+	  "Carrie Fisher": "Princess Leia",
+	  "Anthony Daniels": "C-3PO",
+	  "Daisy Ridley": "Rey",
+	  "Liam Neeson": "Qui-Gon Jinn",
+	  "Natalie Portman": "Padme Amidala",
+	  "Alec Guinness": "Obi-Wan Kenobi",
+	  "Felicity Jones": "Jyn Erso"
+	};
+
+	exports.default = ACTORS;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var CHARACTERS = ["4-LOM",
+	// "Aayla Secura",
+	"Admiral Ackbar",
+	// "Admiral Thrawn",
+	// "Ahsoka Tano",
+	// "Anakin Solo",
+	// "Asajj Ventress",
+	// "Aurra Sing",
+	// "Senator Bail Organa",
+	// "Barriss Offee",
+	// "Bastila Shan",
+	"Ben Skywalker",
+	// "Bib Fortuna",
+	// "Biggs Darklighter",
+	"Boba Fett", "Bossk"];
+
+	exports.default = CHARACTERS;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var SPACECRAFTS = ["Corellian Corvette", "Death Star",
+	// "Ebon Hawk",
+	// "Geonosian solar sailer",
+	// "Imperial Landing Craft",
+	// "Lambda-class shuttle",
+	"Millennium Falcon",
+	// "Moldy Crow",
+	// "Naboo royal cruiser",
+	// "Naboo royal starship",
+	// "Naboo star skiff",
+	// "Nebulon-B frigate",
+	// "Neimoidian shuttle",
+	// "Outrider",
+	// "Radiant VII",
+	// "Raven's Claw",
+	// "Rebel blockade runner",
+	// "Republic assault ship",
+	// "Republic attack cruiser",
+	// "Republic cruiser",
+	// "Rogue Shadow",
+	// "Sith Infiltrator",
+	// "Slave I",
+	// "Star Destroyer",
+	// "Starfreighter",
+	// "Tantive IV",
+	// "Techno Union Starship",
+	// "Theta-class shuttle",
+	// "Lucrehulk-class battleship",
+	// "Trade Federation cruiser",
+	// "Trade Federation landing ship",
+	// "Virago",
+	"TIE Fighter"];
+
+	exports.default = SPACECRAFTS;
 
 /***/ }
 /******/ ]);
